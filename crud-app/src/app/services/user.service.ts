@@ -7,10 +7,10 @@ import { User } from '../models/user.model';
 })
 export class UserService {
   private users: User[] = [
-    { id: 1, name: 'Lucas', email: 'lucas@gmail.com', role: 'Engenheiro de FE', password: 'Ladmin' },
-    { id: 2, name: 'Vinicius', email: 'vinicius@gmail.com', role: 'Engenheiro de BE', password: 'Vadmin' },
-    { id: 3, name: 'Roberto', email: 'roberto@gmail.com', role: 'Analista de dados', password: 'Radmin' },
-    { id: 4, name: 'Roberta', email: 'roberta@gmail.com', role: 'Líder Técnico', password: 'Radmin' }
+    { id: 1, name: 'Lucas Jeronymo Ribeiro', email: 'lucas@gmail.com', role: 'Engenheiro de FE', password: 'Ladmin' },
+    { id: 2, name: 'Vinicius Matheus Nunes Araujo', email: 'vinicius@gmail.com', role: 'Engenheiro de BE', password: 'Vadmin' },
+    { id: 3, name: 'Thiago Jun Honma', email: 'thiago@gmail.com', role: 'Analista de dados', password: 'Tadmin' },
+    { id: 4, name: 'Leonardo Almeida Proença', email: 'leonardo@gmail.com', role: 'Líder Técnico', password: 'Ladmin' }
   ];
 
   private usersUpdated = new Subject<User[]>();

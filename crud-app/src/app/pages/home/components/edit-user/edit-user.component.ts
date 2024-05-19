@@ -11,21 +11,26 @@ import { UserService } from '../../../../services/user.service';
 })
 export class EditUserComponent implements OnInit {
   userForm!: FormGroup;
-  userId: number = 0;
+  users: User[] = [];
+  userId: number | null = null;
   user: User | undefined;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router 
   ) {}
 
   ngOnInit() {
     this.initForm();
+    this.loadUsers();
     this.route.params.subscribe(params => {
-      this.userId = +params['id'];
-      this.loadUserData(this.userId);
+      const id = +params['id'];
+      if (id) {
+        this.userId = id;
+        this.loadUserData(id);
+      }
     });
   }
 
@@ -36,6 +41,10 @@ export class EditUserComponent implements OnInit {
       role: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]]
     });
+  }
+
+  loadUsers() {
+    this.users = this.userService.getUsersList().sort((a, b) => a.name.localeCompare(b.name));
   }
 
   loadUserData(userId: number) {
@@ -50,17 +59,26 @@ export class EditUserComponent implements OnInit {
     }
   }
 
-  updateUser() {
-    if (this.userForm.valid) {
-      const updatedUser: User = {
-        id: this.userId,
-        ...this.userForm.value
-      };
-      this.userService.updateUser(updatedUser);
-      console.log('User edited:', updatedUser);
-      this.router.navigate(['app/users']);
-    } else {
-      console.error('Form is invalid');
+  onUserSelect(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const userId = parseInt(target.value, 10);
+    if (!isNaN(userId)) {
+      this.userId = userId;
+      this.loadUserData(userId);
     }
+  }
+
+  updateUser() {
+    if (this.userId === null) {
+      console.error('User ID is not set');
+      return;
+    }
+    const updatedUser: User = {
+      id: this.userId,
+      ...this.userForm.value
+    };
+    this.userService.updateUser(updatedUser);
+    console.log('User edited:', updatedUser);
+    this.router.navigate(['app/users']);
   }
 }
