@@ -2,3 +2,23 @@
   min-height: 100%;
   height: 80vh;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+}
+
+.btn-success {
+  background-color: #57b300;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: #419145;
+}
