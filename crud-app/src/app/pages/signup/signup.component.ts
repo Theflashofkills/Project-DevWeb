@@ -25,7 +25,4 @@ export class SignupComponent {
 
     this.router.navigate(["/"])
   }
-
-
-
 }

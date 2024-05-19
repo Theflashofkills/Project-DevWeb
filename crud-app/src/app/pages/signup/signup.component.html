@@ -34,7 +34,7 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cg">Senha</label>
-                  <input type="text" formControlName="password" class="form-control form-control-lg">
+                  <input type="password" formControlName="password" class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('password')?.invalid && (signupForm.get('epasswordmail')?.dirty || signupForm.get('password')?.touched)">
@@ -45,7 +45,7 @@
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example4cdg">Confirmação de senha</label>
-                  <input type="text" formControlName="passwordConfirmation" class="form-control form-control-lg">
+                  <input type="password" formControlName="passwordConfirmation" class="form-control form-control-lg">
 
                   <!-- ERROR -->
                   <div *ngIf="signupForm.get('passwordConfirmation')?.invalid && (signupForm.get('passwordConfirmation')?.dirty || signupForm.get('passwordConfirmation')?.touched)">
