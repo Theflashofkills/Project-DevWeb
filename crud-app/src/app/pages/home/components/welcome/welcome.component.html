@@ -1,8 +1,37 @@
-<div class="container-fluid">
-  <div class="row  align-items-center text-center full-height">
-    <div class="col">
-      <h1>Welcome to your aplication</h1>
-      <h2>You are logged in</h2>
+<div class="dashboard">
+  <h1>Dashboard de Usuários</h1>
+  <div class="summary">
+    <div class="card">
+      <h2>Quantidade Total de Usuários</h2>
+      <p id="total-users">{{ totalUsers }}</p>
     </div>
+  </div>
+  <div class="details">
+    <table>
+      <thead>
+        <tr>
+          <th>Função</th>
+          <th>Quantidade de Usuários</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Engenheiro FE</td>
+          <td>{{ roleCounts['Engenheiro de FE'] }}</td>
+        </tr>
+        <tr>
+          <td>Engenheiro BE</td>
+          <td>{{ roleCounts['Engenheiro de BE'] }}</td>
+        </tr>
+        <tr>
+          <td>Analista de Dados</td>
+          <td>{{ roleCounts['Analista de dados'] }}</td>
+        </tr>
+        <tr>
+          <td>Líder Técnico</td>
+          <td>{{ roleCounts['Líder Técnico'] }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
